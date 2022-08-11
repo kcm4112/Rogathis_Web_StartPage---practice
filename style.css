@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*박스 영역을 테두리까지 포함!*/
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: rgba(128,128,128,0.125);
+  z-index: -1;
+}
+#container{
+  margin: 0 auto; /*화면 중앙에 배치 위아래 = 0, 좌우 = auto*/
+  width: 1200px;
+  background-color: white;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*헤더 영역*/
+
+header {
+  width: 100%; /*너비는 화면 전체너비*/
+  height: 100px;
+  background: #07c;
+  font-family: 'Jua', sans-serif;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/* 로고 영역*/
+
+#logo{
+  float: left; /*왼쪽으로 플로팅!*/
+  width: 250px; 
+  height: 100px;
+  line-height: 100px; /*height값과 같게 하여서 글자가 세로로 중앙에 오도록 배치*/
+  padding-left: 40px; /* 왼쪽에 여백을 준다*/
+}
+
+#logo h1 {
+  font-family: 'Jua', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*내비게이션(메뉴) 영역*/
+
+nav {
+  float: right;
+  width: 900px;
+  height: 100px;
+  padding-top: 40px;
+}
+
+#topMenu {
+  height: 60px;
+}
+
+#topMenu > li {
+  float: left;  /*메뉴 항목들을 왼쪽으로 플로팅*/
+  position: relative; /* 서브메뉴의 부모요소를 relative로 지정*/
+}
+
+#topMenu > li > a{
+  display: block; /* 텍스트를 블록으로 지정*/
+  color: white; /*폰트 색상*/
+  font-weight: 500; /* 폰트 굵기*/
+  padding: 20px 60px; /*위아래 20, 좌우 60지정*/
+}
+
+#topMenu > li > ul {
+  display: none; /*서브메뉴를 처음에 감춘다.*/
+  position: absolute;
+  width: 160px;
+  background-color: rgba(255,255,255, 0.6); /*서브메뉴 배경 투명하게!*/
+  left: 15px;
+}
+#topMenu > li > ul > li {
+  padding: 10px 10px 10px 30px; /*서브메뉴 항목 패딩 지정*/
+}
+
+#topMenu > li > ul > li > a {
+  font-size: 14px;
+  padding: 20px;
+  color: black;
+}
+
+#topMenu > li:hover > ul {
+  display: block; /*메인메뉴 위로 마우스 오버하면 서브메뉴가 화면에 보이게!*/
+  z-index: 100; /*기본레이어 0보다 위에 있게 하여 슬라이드 쇼 이미지에 가리지 않도록 한다!*/
+}
+
+#topMenu > li > ul > li > a:hover {
+  color: blue; /* 서브메뉴 텍스트 위에 마우스을 오버하면 글씨 색깔이 바뀌게 한다!*/
+}
+#topMenu > li > a > span {
+  font-size: 0.5em; /* 서브메뉴가 있는 항목의 화살표 사이즈*/
+}
+
+#topMenu > li > a:hover{
+  color: black; /*마우스 포인터를 올리면 검은색으로 바뀜*/
+}
+
+
+
+/*-------------------------------------------------------------------------------------*/
+/*이미지 슬라이드쇼 영역*/
+
+#slideShow {
+  clear: both; /*플로팅 해제!*/
+  width: 100%;
+  height: 500px;
+  overflow: hidden; /*영역이 겹치면 감춘다.*/
+  position: relative;
+}
+
+#slides {
+  position: absolute;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+#slides > img {
+  width: 100%;
+  float: left; /*가로로배치*/
+}
+
+button {
+  position: absolute;
+  height: 500px; /*이미지 높이에 맞춘다*/
+  top: 0;
+  border: none; /*테두리 없음*/
+  padding: 20px; 
+  background-color: transparent; /*투명한 배경지정*/
+  color: black; /*화살표 색깔은 검은색*/
+  font-weight: 800; /*화살표 굵기*/
+  font-size: 24px;
+  opacity: 0.5; /*화살표는 반투명하게 지정!*/
+}
+
+#prev {
+  left: 0; /*왼쪽으로 붙이기!*/
+}
+
+#next {
+  right: 0; /*오른쪽으로 붙이기!*/
+}
+
+button:hover { /*마우스포인터를 올리면?*/
+  background-color: #222; /*배경은 짙은 회색*/
+  color: white; /*흰색 화살표!*/
+  opacity: 0.6; /*불투명도를 높인다*/
+  cursor: pointer; /*커서를 올리면 커서 모양이 손가락으로 바뀜!*/
+}
+
+button:focus {
+  outline: 0; /*윤곽선 제거*/
+}
+/*-------------------------------------------------------------------------------------*/
+/*콘텐츠 영역*/
+
+#contents {
+  width: 100%;
+  height: 300px;
+}
+
+
+/*-------------------------------------------------------------------------------------*/
+/*탭 메뉴 영역*/
+
+#tabMenu {
+  float: left; /*왼쪽 플로팅!*/
+  width: 600px;
+  height: 100%;
+}
+
+#tabMenu input[type="radio"] {
+  display: none; /*라디오 버튼 감추기*/
+}
+
+#tabMenu label { /*탭 제목의 스타일 지정*/
+  display: inline-block; /*탭을 가로로 배치하기 위함*/
+  margin: 0 0;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #aaa;
+  border: 1px solid transparent;
+}
+
+#tabMenu label:hover {  /* 마우스 오버했을 때 탭 제목 스타일 */
+  color:#222;  
+  cursor:pointer;
+}
+#tabMenu input:checked + label {  /* 활성화된 탭 제목 스타일 */ 
+  color:#b00;
+  border:1px solid #ddd;
+  background-color: #eee;
+}
+
+.tabContent { /*탭 내용 스타일*/
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+.tabContent h2{ /*내용 구분을 위해 넣은 것이므로 화면에서 감춘다.*/
+  display: none;
+}
+
+#notice ul {
+  list-style: disc;
+  margin-left: 30px;
+}
+#notice ul li {
+  font-size: 16px;
+  line-height: 2.5;
+}
+
+#tab1:checked ~ #notice,
+#tab2:checked ~ #calender {
+  display: block;
+} 
+
+
+/*-------------------------------------------------------------------------------------*/
+/*sns링크 영역*/
+ #sns_link {
+  float: right; /*오른쪽 플로팅!*/
+  width: 600px;
+  height: 300px;
+ }
+
+ #sns_link ul {
+  padding: 0;
+  overflow: hidden;
+ }
+
+ #sns_link ul li {
+  float: left; /*가로로 배치*/
+  width: 50%; /*두 가지 항목이므로 각각 반씩 차지*/
+  text-align: center;
+  margin: 10px 0;
+ }
+
+ #sns_link ul li a span {
+  display: block; /*블록 레벨로 지정*/
+  margin: 10px auto; /*가운데 배치*/
+  width: 200px; /*이미지 규격에 맞도록 설정*/
+  height: 200px; /*이미지 규격에 맞도록 설정*/
+  border: 1px solid #ddd;
+  border-radius: 30%;
+  line-height: 200px; /*수직으로 중앙에 오게*/
+ }
+
+ #icon1 {
+  background-image: url("../images/insta.webp");
+ }
+ #icon2 {
+  background-image: url("../images/computer.jpeg");
+ }
+ #sns_link ul li a p {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #666;
+ }
+ /*-------------------------------------------------------------------------------------*/
+ /*푸터 영역*/
+
+ footer {
+  width: 100%;
+  height: 100px;
+  border-top: 2px solid #222;
+ }
+
+ #footerMenu {
+  width:100%;
+  height: 20px;
+  position: relative;
+ }
+ #footerMenu ul {
+  margin-top: 15px;
+ }
+
+ #footerMenu ul li {
+  float: left;
+  padding: 5px 20px;
+ }
+
+ #sns {
+  position: absolute;
+  right:0;
+ }
+ #sns ul li {
+  border: none; /*세로선 없앰*/
+  padding: 5px;
+ }
+ #info {
+  clear: both;
+  margin-top: 25px;
+  margin-left: 20px;
+ }
+ #sns p {
+  font-size: 14px;
+  color: #aaa;
+ }
+
+
+
+
